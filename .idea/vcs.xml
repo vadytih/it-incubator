@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/projects/01-first-project" vcs="" />
+    <mapping directory="$PROJECT_DIR$/projects/first-project" vcs="" />
+    <mapping directory="$PROJECT_DIR$/projects/first-project/react-kabzda-1" vcs="" />
   </component>
 </project>
