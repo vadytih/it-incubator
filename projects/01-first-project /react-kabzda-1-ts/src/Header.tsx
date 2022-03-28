@@ -1,10 +1,10 @@
 import React from "react";
 
 const Header = () => {
+    console.log("Header - компанент отрисован")
     return (
         <div>
             <ul>
-                <h3>Меню</h3>
                 <li>
                     <a href="#">Home</a>
                 </li>

@@ -1,16 +1,29 @@
 import React from 'react';
 import './App.css';
 import Header from "./Header";
-import Technologies from "./Technologies";
+import Accordion from "./Accordion";
 import Rating from "./Rating";
 
-const App = () => {
+const AppTitle = () => {
+    console.log("AppTitle - компанент отрисован")
     return (
-        <div>
-            <Header/>
-            <Technologies/>
-            <Rating/>
-        </div>
+        <>This is APP components</>
+    )
+}
+
+const App = () => {
+    console.log("App - компанент отрисован")
+    return (
+        <>
+            <AppTitle/>
+            <div>
+                <Header/>
+                <Rating/>
+                <Accordion/>
+                <Rating/>
+            </div>
+        </>
+
     )
 }
 

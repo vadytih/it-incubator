@@ -2,15 +2,15 @@ import React from "react";
 import Star from "./Star";
 
 const Rating = () => {
+    console.log("Rating - компанент отрисован")
     return (
-        <div>
+        <>
             <Star/>
             <Star/>
             <Star/>
             <Star/>
             <Star/>
-        </div>
-
+        </>
     )
 }
 
