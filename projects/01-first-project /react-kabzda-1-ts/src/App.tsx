@@ -5,22 +5,26 @@ import Accordion from "./components/Accordion/Accordion";
 import Rating from "./components/Rating/Rating";
 
 
-function AppTitle () {
-    console.log("AppTitle - компанент отрисован")
+function PageTitle(props: any) {
+    console.log("PageTitle - компанент отрисован")
     return (
-        <>This is APP components</>
+        <h1>
+            {props.title}
+        </h1>
     )
 }
 
-const App = () => {
+const App = () =>
+{
     console.log("App - компанент отрисован")
     return (
         <>
-            <AppTitle/>
+            <PageTitle title={"This is APP components"}/>
             <div>
                 <Header/>
                 <Rating value={3}/>
-                <Accordion/>
+                <Accordion title={"Меню 1"}/>
+                <Accordion title={"Меню 2"}/>
                 <Rating value={0}/>
                 <Rating value={1}/>
                 <Rating value={2}/>

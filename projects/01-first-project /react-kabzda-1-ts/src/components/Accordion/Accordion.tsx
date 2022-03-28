@@ -1,10 +1,10 @@
 import React from "react";
 
 
-function AccordionTitle () {
+function AccordionTitle (props: any) {
     console.log("AccordionTitle - компанент отрисован")
     return (
-        <h3>Меню</h3>
+        <h3>{props.title}</h3>
     )
 }
 
@@ -22,11 +22,11 @@ function AccordionBody () {
 }
 
 
-const Accordion = () => {
+function Accordion (props: any){
     console.log("Accordion - компанент отрисован")
     return (
         <div>
-            <AccordionTitle/>
+            <AccordionTitle title={props.title}/>
             <AccordionBody/>
         </div>
     )
