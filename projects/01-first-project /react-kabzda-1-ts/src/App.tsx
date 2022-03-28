@@ -23,8 +23,8 @@ const App = () =>
             <div>
                 <Header/>
                 <Rating value={3}/>
-                <Accordion title={"Меню 1"}/>
-                <Accordion title={"Меню 2"}/>
+                <Accordion titleValue={"Меню 1"}/>
+                <Accordion titleValue={"Меню 2"}/>
                 <Rating value={0}/>
                 <Rating value={1}/>
                 <Rating value={2}/>

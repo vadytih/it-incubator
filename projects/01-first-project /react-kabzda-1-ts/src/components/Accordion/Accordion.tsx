@@ -26,7 +26,7 @@ function Accordion (props: any){
     console.log("Accordion - компанент отрисован")
     return (
         <div>
-            <AccordionTitle title={props.title}/>
+            <AccordionTitle title={props.titleValue}/>
             <AccordionBody/>
         </div>
     )

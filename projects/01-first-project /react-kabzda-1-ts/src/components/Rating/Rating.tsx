@@ -1,10 +1,20 @@
 import React from "react";
 
-function Star(props: any) {
+type RatingPropsType = {
+    value: number
+}
+
+type StarPropsType = {
+    selected : boolean
+}
+
+function Star(props: StarPropsType) {
     console.log("Star - компанент отрисован")
 
     if (props.selected === true) {
-        return <span><b>star</b> </span>
+        return (
+            <span><b>star</b> </span>
+        )
     } else {
         return (
             <span>star </span>
@@ -14,7 +24,7 @@ function Star(props: any) {
 }
 
 
-const Rating = (props: any) => {
+const Rating = (props: RatingPropsType) => {
     console.log("Rating - компанент отрисован")
 
     if (props.value === 1) {
