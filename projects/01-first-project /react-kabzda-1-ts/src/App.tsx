@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import Header from "./Header";
-import Accordion from "./Accordion";
-import Rating from "./Rating";
+import Header from "./components/Header/Header";
+import Accordion from "./components/Accordion/Accordion";
+import Rating from "./components/Rating/Rating";
 
-const AppTitle = () => {
+
+function AppTitle () {
     console.log("AppTitle - компанент отрисован")
     return (
         <>This is APP components</>
@@ -18,9 +19,14 @@ const App = () => {
             <AppTitle/>
             <div>
                 <Header/>
-                <Rating/>
+                <Rating value={3}/>
                 <Accordion/>
-                <Rating/>
+                <Rating value={0}/>
+                <Rating value={1}/>
+                <Rating value={2}/>
+                <Rating value={3}/>
+                <Rating value={4}/>
+                <Rating value={5}/>
             </div>
         </>
 
