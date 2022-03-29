@@ -1,7 +1,10 @@
 import React from "react";
 
+type AccordionTitlePropsType = {
+    title: string
+}
 
-function AccordionTitle (props: any) {
+function AccordionTitle (props: AccordionTitlePropsType) {
     console.log("AccordionTitle - компанент отрисован")
     return (
         <h3>{props.title}</h3>
@@ -21,16 +24,31 @@ function AccordionBody () {
     )
 }
 
-
-function Accordion (props: any){
-    console.log("Accordion - компанент отрисован")
-    return (
-        <div>
-            <AccordionTitle title={props.titleValue}/>
-            <AccordionBody/>
-        </div>
-    )
+type AccordionPropsType = {
+    titleValue : string
+    collapse : boolean
 }
 
-export default Accordion;
+export const Accordion = (props: AccordionPropsType) => {
+    console.log("Accordion - компанент отрисован")
+
+    if (props.collapse === true) {
+        return (
+            <div>
+                <AccordionTitle title={props.titleValue}/>
+                <AccordionBody/>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+                <AccordionTitle title={props.titleValue}/>
+            </div>
+        )
+    }
+
+}
+
+
 

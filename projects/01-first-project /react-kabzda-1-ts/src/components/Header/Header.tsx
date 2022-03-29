@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+export const Header = () => {
     console.log("Header - компанент отрисован")
     return (
         <div>
@@ -18,5 +18,3 @@ const Header = () => {
         </div>
     )
 }
-
-export default Header;

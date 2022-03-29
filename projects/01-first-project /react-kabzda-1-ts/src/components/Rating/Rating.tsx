@@ -24,7 +24,7 @@ function Star(props: StarPropsType) {
 }
 
 
-const Rating = (props: RatingPropsType) => {
+export const Rating = (props: RatingPropsType) => {
     console.log("Rating - компанент отрисован")
 
     if (props.value === 1) {
@@ -99,5 +99,4 @@ const Rating = (props: RatingPropsType) => {
 
 }
 
-export default Rating;
 
