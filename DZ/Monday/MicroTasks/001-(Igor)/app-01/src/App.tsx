@@ -31,7 +31,6 @@ function App() {
             <Header contentHeader={"HEADER"}/>
             <Body studentsList={students} studentsTitle={"Студенты"} autoList={topCars} autoListTitle={"Авто"}/>
             <Footer contentFooter={"FOOTER content"}/>
-
         </>
     </div>
   );
