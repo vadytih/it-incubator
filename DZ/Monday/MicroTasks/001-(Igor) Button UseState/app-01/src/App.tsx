@@ -27,7 +27,7 @@ const Clicker = () => {
     )
 }
 
-export const App = () => {
+const App = () => {
     return (
         <div className="App">
             <Clicker/>
