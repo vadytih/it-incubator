@@ -1,9 +1,9 @@
 import React from "react";
 
 type TodolistPropsType = {
-    topic1?: string;
-    topic2?: string;
+    topic: string;
     arr: Array<InArrPropsType>
+    remuvTask: Function
 }
 
 type InArrPropsType = {
@@ -15,7 +15,7 @@ type InArrPropsType = {
 export const TodoList = (props: TodolistPropsType) => {
     return (
         <div>
-            <h3>{props.topic1}{props.topic2}</h3>
+            <h3>{props.topic}</h3>
             <div>
                 <input/>
                 <button>+</button>
@@ -23,14 +23,13 @@ export const TodoList = (props: TodolistPropsType) => {
             <ul>
                 {props.arr.map((el) => {
                     return (
-                        <li><input type="checkbox" checked={el.isDone}/> <span>{el.title}</span></li>
+                        <li key={el.id}>
+                            <input type="checkbox" checked={el.isDone}/>
+                            <span>{el.title}</span>
+                            <button onClick={()=>props.remuvTask(el.id)}>x</button>
+                        </li>
                     )
                 })}
-                {/*<li><input type="checkbox" checked={true}/> <span>{props.arr[0].title}</span></li>*/}
-                {/*<li><input type="checkbox" checked={true}/> <span>{props.arr[1].title}</span></li>*/}
-                {/*<li><input type="checkbox" checked={false}/> <span>{props.arr[2].title}</span></li>*/}
-                {/*<li><input type="checkbox" checked={false}/> <span>{props.arr[2].title}</span></li>*/}
-
             </ul>
             <div>
                 <button>All</button>

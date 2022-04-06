@@ -1,28 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import {TodoList} from "./ToduList";
-
+import {Todolist} from './Todolist';
 
 function App() {
-    const arr1=[
+
+    const [tasks, setTasks] = useState([
         {id: 1, title: "HTML&CSS", isDone: true},
         {id: 2, title: "JS", isDone: true},
-        {id: 3, title: "ReactJS", isDone: false},
-        {id: 4, title: "Rest API", isDone: false},
-    ]
+        {id: 3, title: "ReactJS", isDone: false}
+    ])
 
-    const arr2=[
-        {id: 1, title: "HTML&CSS222", isDone: true},
-        {id: 2, title: "JS222", isDone: true},
-        {id: 3, title: "ReactJS2222", isDone: false},
-        {id: 4, title: "Rest API22222", isDone: false},
-        {id: 5, title: "GraphQL22222", isDone: false},
-    ]
+
+    const [filter, setFilter] = useState<string>("All")
+
+    let filterTask = tasks
+
+    if (filter === "Active") {
+        filterTask=tasks.filter(t => t.isDone)
+    }
+
+    if (filter === "Completed") {
+        filterTask=tasks.filter(t => !t.isDone)
+    }
+
+    const chenchFilter = (filt: string) => {
+        setFilter(filt)
+    }
+
+
+    const remuveTask = (id: number) => {
+        setTasks(tasks.filter(t => t.id !== id))
+    }
 
     return (
         <div className="App">
-            <TodoList topic1={"What to learn -11111"} arr={arr1}/>
-            <TodoList topic2={"What to learn -22222"} arr={arr2}/>
+            <Todolist title="What to learn"
+                      tasks={filterTask}
+                      chenchFilter={chenchFilter}
+                      remuveTask={remuveTask}/>
         </div>
     );
 }
