@@ -11,3 +11,5 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@import "./p2-homeworks/h1/Message.module.css";
