@@ -13,7 +13,7 @@ const messageData = {
 const messageDatalLast = {
     avatar: 'https://pp.userapi.com/c834200/v834200414/e2d7b/1wo3NKZnh0s.jpg',
     name: '999 Evol 666',
-    message: 'Мама, можно я не буду есть суп?',
+    message: 'Мама, можно я не буду есть суп?енеаенанеаенанеанеа',
     time: '22:01',
 }
 
