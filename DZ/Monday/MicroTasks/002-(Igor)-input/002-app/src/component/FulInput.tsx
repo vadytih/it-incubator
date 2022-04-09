@@ -19,7 +19,7 @@ export const FullInput = (props: FulInputPropsType) => {
 
     return (
         <div>
-            <input value={title} onChange={onChangeInputHandler} id="inputMessage"/>
+            <input placeholder="FulInput.tsx" value={title} onChange={onChangeInputHandler} id="inputMessage"/>
             <button onClick={onClickButtonHandler}>+</button>
         </div>
     )
