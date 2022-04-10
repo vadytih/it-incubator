@@ -2,10 +2,12 @@
 .someClass {
 
 }
+
 .hw2 {
     margin: 0 auto;
     width: 300px;
-    background-color: khaki;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,6 +15,8 @@
 
 .hw2__span {
     text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
 }
 
 .hw2__result {
@@ -29,11 +33,12 @@
     margin-left: 5px;
     margin-right: 20px;
     border-radius: 50%;
-    background-color: darkgray;
+    background-color: darkblue;
     color: grey;
     font-weight: bold;
     transition: all 0.2s;
 }
+
 .hw2__del-button:hover {
     background-color: orangered;
     color: white;
