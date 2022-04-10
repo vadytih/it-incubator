@@ -1,3 +1,47 @@
+
 .someClass {
+
+}
+.hw2 {
+    margin: 0 auto;
+    width: 300px;
+    background-color: khaki;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hw2__span {
+    text-align: center;
+}
+
+.hw2__result {
+    box-sizing: border-box;
+    border-bottom: 1px solid darkblue;
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+}
+
+.hw2__del-button {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background-color: darkgray;
+    color: grey;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+.hw2__del-button:hover {
+    background-color: orangered;
+    color: white;
+    transition: all 0.2s;
+
+}
+
+.hw2__button-filtr {
+    width: 300px;
 
 }

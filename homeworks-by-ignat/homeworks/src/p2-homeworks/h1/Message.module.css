@@ -1,4 +1,5 @@
 .message {
+    margin: 0 auto;
     background-color: limegreen;
     max-width: 500px;
     padding: 15px;
@@ -81,6 +82,7 @@
 /*//Альтернативные месаги */
 
 .message-alt {
+    margin: 0 auto;
     background-color: limegreen;
     max-width: 500px;
     padding: 15px;
