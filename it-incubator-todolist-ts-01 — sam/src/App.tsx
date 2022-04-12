@@ -1,24 +1,44 @@
 import React, {useState} from 'react';
 import './App.css';
-import {TodoList} from "./ToduList";
+import {TodoList, InArrPropsType} from "./ToduList";
+import {v1} from "";
 
 
 function App() {
     const [arr, setArr] = useState([
-        {id: 1, title: "HTML&CSS", isDone: true},
-        {id: 2, title: "JS", isDone: true},
-        {id: 3, title: "ReactJS", isDone: false},
-        {id: 4, title: "Rest API", isDone: false},
+        {id: v1(), title: "HTML&CSS", isDone: true},
+        {id: v1(), title: "JS", isDone: true},
+        {id: v1(), title: "ReactJS", isDone: false},
+        {id: v1(), title: "Rest API", isDone: false},
     ])
 
-    const remuvTask = (id: number) => {
+    let [filter, setFilter] = useState("all")
+    let [copyArr, setCopyArr] = useState([...arr])
+
+    const filterTask = (filt: string) => {
+        setFilter(filt)
+    }
+
+    let filterTasks = arr
+
+    if (filter == "active") {
+        filterTasks = arr.filter(t => !t.isDone)
+    }
+
+    if (filter == "completed") {
+        filterTasks = arr.filter(t => t.isDone)
+    }
+
+
+    const remuvTask = (id: string) => {
         let filterTasks = arr.filter(t => t.id !== id)
         setArr(filterTasks)
     }
 
+
     return (
         <div className="App">
-            <TodoList topic={"What to learn"} arr={arr} remuvTask={remuvTask}/>
+            <TodoList topic={"What to learn"} remuvTask={remuvTask} arr={filterTasks} filterTask={filterTask}/>
         </div>
     );
 }

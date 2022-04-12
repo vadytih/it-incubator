@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {KeyboardEvent,ChangeEvent, useState} from 'react';
+import {FilterValuesType} from "./App";
 
 type TaskType = {
-    id: number
+    id: string
     title: string
     isDone: boolean
 }
@@ -9,35 +10,76 @@ type TaskType = {
 type PropsType = {
     title: string
     tasks: Array<TaskType>
-    remuveTask: (id: number) => void
-    chenchFilter: (filt: string) => void
+    removeTask: (id: string) => void
+    // chenchFilter: (filt: string) => void
+    addTask: (message: string) => void
 }
 
 export function Todolist(props: PropsType) {
+
+    const [filter, setFilter] = useState<string>("All")
+
+    const chenchFilter = (filt: string) => {
+        setFilter(filt)
+    }
+
+    let filterTask = props.tasks
+
+    if (filter === "Active") {
+        filterTask = props.tasks.filter(t => t.isDone)
+
+    }
+    if (filter === "Completed") {
+        filterTask = props.tasks.filter(t => !t.isDone)
+
+    }
+
+    let [newTitle, setNewTitle] = useState('')
+    console.log(newTitle)
+
+    const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        setNewTitle(event.currentTarget.value)
+    }
+
+    const onClickAddButtonHandler = () => {
+        props.addTask(newTitle)
+        setNewTitle('')
+    }
+
+    const onKeyPressInputHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+            onClickAddButtonHandler()
+        }
+    }
+
+    const chenchFilterHandler = (value: FilterValuesType) => {
+        chenchFilter(value)
+    }
+
     return <div>
         <h3>{props.title}</h3>
         <div>
-            <input/>
-            <button>+</button>
+            <input value={newTitle} onChange={onChangeInputHandler} onKeyPress={onKeyPressInputHandler}/>
+            <button onClick={onClickAddButtonHandler}>+</button>
         </div>
         <ul>
             {
-                props.tasks.map(t => {
-                    debugger
+                filterTask.map(t => {
+                    // debugger
                     return (
                         <li key={t.id}>
-                            <input type="checkbox" checked={t.isDone}/> <span>{t.title}</span>
-                            <button onClick={() => props.remuveTask(t.id)}>x</button>
+                            <input type="checkbox" checked={t.isDone}/>
+                            <span>{t.title}</span>
+                            <button onClick={() => props.removeTask(t.id)}>x</button>
                         </li>
-
                     )
                 })
             }
         </ul>
         <div>
-            <button onClick={() => props.chenchFilter('All')}>All</button>
-            <button onClick={() => props.chenchFilter("Active")}>Active</button>
-            <button onClick={() => props.chenchFilter('Completed')}>Completed</button>
+            <button onClick={() => chenchFilterHandler('All')}>All</button>
+            <button onClick={() => chenchFilterHandler("Active")}>Active</button>
+            <button onClick={() => chenchFilterHandler('Completed')}>Completed</button>
         </div>
     </div>
 }

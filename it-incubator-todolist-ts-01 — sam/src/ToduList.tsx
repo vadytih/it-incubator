@@ -3,16 +3,22 @@ import React from "react";
 type TodolistPropsType = {
     topic: string;
     arr: Array<InArrPropsType>
-    remuvTask: Function
+    remuvTask: (s: string)=>void
+    filterTask:(filt: string)=> void
 }
 
-type InArrPropsType = {
-    id: number
+export type InArrPropsType = {
+    id: string
     title: string
     isDone: boolean
 }
 
 export const TodoList = (props: TodolistPropsType) => {
+
+    const onClickFiltrButtonHeandler = (k: string) => {
+        props.filterTask(k)
+    }
+
     return (
         <div>
             <h3>{props.topic}</h3>
@@ -21,7 +27,8 @@ export const TodoList = (props: TodolistPropsType) => {
                 <button>+</button>
             </div>
             <ul>
-                {props.arr.map((el) => {
+                {
+                    props.arr.map((el) => {
                     return (
                         <li key={el.id}>
                             <input type="checkbox" checked={el.isDone}/>
@@ -32,9 +39,9 @@ export const TodoList = (props: TodolistPropsType) => {
                 })}
             </ul>
             <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
+                <button onClick={()=>onClickFiltrButtonHeandler('all')}>All</button>
+                <button onClick={()=>onClickFiltrButtonHeandler('active')}>Active</button>
+                <button onClick={()=>onClickFiltrButtonHeandler('completed')}>Completed</button>
             </div>
         </div>
     )

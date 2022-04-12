@@ -1,6 +1,6 @@
 import React from 'react'
 import Affair from './Affair'
-import {AffairType, filterAffairs} from './HW2'
+import {AffairType} from './HW2'
 
 type AffairsPropsType = { // need to fix any
     data: Array<AffairType>

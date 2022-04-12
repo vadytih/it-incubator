@@ -1,43 +1,55 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from './Todolist';
+import {v1} from "uuid"
+
+export type FilterValuesType = "All" | "Active" | "Completed";
 
 function App() {
 
     const [tasks, setTasks] = useState([
-        {id: 1, title: "HTML&CSS", isDone: true},
-        {id: 2, title: "JS", isDone: true},
-        {id: 3, title: "ReactJS", isDone: false}
+        {id: v1(), title: "HTML&CSS", isDone: true},
+        {id: v1(), title: "JS", isDone: true},
+        {id: v1(), title: "ReactJS", isDone: false},
+        {id: v1(), title: "Rest API", isDone: false}
     ])
 
+    const addTask = (message: string) => {
+        let newTask = {id: v1(), title: message, isDone: false}
+        setTasks([newTask, ...tasks])
 
-    const [filter, setFilter] = useState<string>("All")
-
-    let filterTask = tasks
-
-    if (filter === "Active") {
-        filterTask=tasks.filter(t => t.isDone)
+        console.log([newTask, ...tasks])
     }
 
-    if (filter === "Completed") {
-        filterTask=tasks.filter(t => !t.isDone)
-    }
+    // const [filter, setFilter] = useState<string>("All")
+    //
+    // const chenchFilter = (filt: string) => {
+    //     setFilter(filt)
+    // }
+    //
+    // let filterTask = tasks
+    //
+    // if (filter === "Active") {
+    //     filterTask = tasks.filter(t => t.isDone)
+    //
+    // }
+    // if (filter === "Completed") {
+    //     filterTask = tasks.filter(t => !t.isDone)
+    //
+    // }
 
-    const chenchFilter = (filt: string) => {
-        setFilter(filt)
-    }
-
-
-    const remuveTask = (id: number) => {
+    const removeTask = (id: string) => {
         setTasks(tasks.filter(t => t.id !== id))
     }
 
     return (
         <div className="App">
             <Todolist title="What to learn"
-                      tasks={filterTask}
-                      chenchFilter={chenchFilter}
-                      remuveTask={remuveTask}/>
+                      tasks={tasks}
+                      // chenchFilter={chenchFilter}
+                      removeTask={removeTask}
+                      addTask={addTask}/>
+
         </div>
     );
 }
