@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dark-green {
+background-color: darkgreen;
+}
+
+.green {
+background-color: limegreen;
+}
+
+.dark-red {
+background-color: darkred;
+}
+
+.red {
+  background-color: red;
+}
+
+.krug {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.box-block {
+  color: white;
+  font-weight: bold;
+  width: 30px;
+  height: 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  padding: 10px 10px 5px 20px;
+}

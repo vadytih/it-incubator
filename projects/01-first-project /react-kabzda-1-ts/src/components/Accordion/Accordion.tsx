@@ -4,7 +4,7 @@ type AccordionTitlePropsType = {
     title: string
 }
 
-function AccordionTitle (props: AccordionTitlePropsType) {
+function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle - компанент отрисован")
     return (
         <h3>{props.title}</h3>
@@ -12,7 +12,7 @@ function AccordionTitle (props: AccordionTitlePropsType) {
 }
 
 
-function AccordionBody () {
+function AccordionBody() {
     console.log("AccordionBody - компанент отрисован")
     return (
         <ul>
@@ -25,30 +25,43 @@ function AccordionBody () {
 }
 
 type AccordionPropsType = {
-    titleValue : string
-    collapse : boolean
+    titleValue: string
+    collapse: boolean
 }
+
+// export const Accordion = (props: AccordionPropsType) => {
+//     console.log("Accordion - компанент отрисован")
+//
+//     if (props.collapse === true) {
+//
+//         return (
+//             <div>
+//                 <AccordionTitle title={props.titleValue}/>
+//                 <AccordionBody/>
+//             </div>
+//         )
+//     }
+//     else {
+//         return (
+//             <div>
+//                 <AccordionTitle title={props.titleValue}/>
+//             </div>
+//         )
+//     }
+//
+// }
 
 export const Accordion = (props: AccordionPropsType) => {
     console.log("Accordion - компанент отрисован")
 
-    if (props.collapse === true) {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-                <AccordionBody/>
-            </div>
-        )
-    }
-    else {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <AccordionTitle title={props.titleValue}/>
+            { !props.collapse && <AccordionBody/>}
+        </div>
+    )
+
 
 }
-
 
 

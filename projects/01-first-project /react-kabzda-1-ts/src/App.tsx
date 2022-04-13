@@ -3,6 +3,7 @@ import './App.css';
 import {Header} from "./components/Header/Header";
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
 
 
 function PageTitle(props: any) {
@@ -14,8 +15,7 @@ function PageTitle(props: any) {
     )
 }
 
-const App = () =>
-{
+const App = () => {
     console.log("App - компанент отрисован")
     return (
         <>
@@ -25,9 +25,16 @@ const App = () =>
                 <Rating value={3}/>
                 <Accordion titleValue={"Меню"} collapse={true}/>
                 <Accordion titleValue={"Пользователи"} collapse={false}/>
+                <Rating value={0}/>
+                <Rating value={1}/>
+                <Rating value={2}/>
+                <Rating value={3}/>
+                <Rating value={4}/>
+                <Rating value={5}/>
             </div>
+            <OnOff value={true}/>
+            <OnOff value={false}/>
         </>
-
     )
 }
 
