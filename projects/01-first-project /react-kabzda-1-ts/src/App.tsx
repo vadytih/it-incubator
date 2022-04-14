@@ -4,6 +4,8 @@ import {Header} from "./components/Header/Header";
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
+import  {OnOff2} from "./components/OnOff2/OnOff2";
+import {Accordion2} from "./components/Accordion2/Accordion2";
 
 
 function PageTitle(props: any) {
@@ -34,6 +36,14 @@ const App = () => {
             </div>
             <OnOff value={true}/>
             <OnOff value={false}/>
+
+            <OnOff2/>
+            <OnOff2/>
+            <OnOff2/>
+            <OnOff2/>
+            <OnOff2/>
+
+            <Accordion2 titleValue={"Меню"} collapse={true}/>
         </>
     )
 }

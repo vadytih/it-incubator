@@ -33,6 +33,8 @@ background-color: darkred;
   width: 20px;
   height: 20px;
   border-radius: 50%;
+
+
 }
 
 .box-block {
@@ -40,6 +42,7 @@ background-color: darkred;
   font-weight: bold;
   width: 30px;
   height: 20px;
+
 }
 
 .wrapper {
