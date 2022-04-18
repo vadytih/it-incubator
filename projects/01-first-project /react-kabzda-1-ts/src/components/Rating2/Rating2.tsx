@@ -6,8 +6,6 @@ const starStyle = {
 }
 
 export const Rating2 = () => {
-    console.log("Rating - компанент отрисован")
-
     let [selected, setSelected] = useState(0)
     let i = 0
 

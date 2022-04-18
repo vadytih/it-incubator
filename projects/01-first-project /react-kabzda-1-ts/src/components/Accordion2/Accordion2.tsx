@@ -37,7 +37,9 @@ export const Accordion2 = (props: AccordionPropsType2) => {
     let [menuOn, setMenuOn] = useState(props.collapse)
 
     const onClickHandler = () => {
-        menuOn ? setMenuOn(false): setMenuOn(true)
+        // menuOn ? setMenuOn(false): setMenuOn(true)
+        setMenuOn(!menuOn)
+
         console.log(menuOn)
     }
 
