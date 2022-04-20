@@ -15,7 +15,6 @@ export const UniversalButton = (props: UniversalButtonPropsType) => {
 
     const onClickHandler = (btnName: string) => {
         if (btnName === 'inc') {
-            console.log(props.dateCounter)
             if (props.dateCounter <= props.maxCounter) {
                 props.setDateCounter(props.dateCounter + 1)
                 props.setActive({...props.active, reset: false})
@@ -27,7 +26,6 @@ export const UniversalButton = (props: UniversalButtonPropsType) => {
         }
 
         if (btnName === 'reset') {
-            console.log(props.dateCounter)
             props.setDateCounter(0)
             props.setActive({...props.active, reset: true, inc: false})
         }
