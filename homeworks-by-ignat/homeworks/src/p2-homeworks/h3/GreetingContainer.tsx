@@ -24,8 +24,11 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         if (name.trim() === '') {
             setError(" Пустая строка! ")
         } else {
-            addUserCallback(name.trim())
-            alert(`Hello ${name.trim()} !`) // need to fix
+            let arrX = name.trim().toLowerCase().split('')
+            arrX[0] = arrX[0].toLocaleUpperCase()
+            let normNane = arrX.join('')
+            addUserCallback(normNane)
+            alert(`Hello ${normNane}!`) // need to fix
             setName('')
         }
     }
