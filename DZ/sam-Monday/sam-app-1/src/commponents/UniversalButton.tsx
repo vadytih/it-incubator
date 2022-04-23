@@ -32,7 +32,9 @@ export const UniversalButton = (props: UniversalButtonPropsType) => {
     }
 
     return (
-        <button className={Style.btn} disabled={activeX}
-                onClick={(event) => onClickHandler(props.nameButton)}>{props.nameButton}</button>
+        <button
+            className={Style.btn}
+            disabled={activeX}
+            onClick={(event) => onClickHandler(props.nameButton)}>{props.nameButton}</button>
     )
 }

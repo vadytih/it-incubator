@@ -8,6 +8,7 @@ type ClickerPropsType = {
 }
 export const Clicker = (props: ClickerPropsType) => {
     let [dateCounter, setDateCounter] = useState(0)
+    // убрать в компанент к кнопкам
     let [active, setActive] = useState({
         inc: false,
         reset: true
@@ -17,10 +18,26 @@ export const Clicker = (props: ClickerPropsType) => {
         <>
             <h2>Max counter: {props.maxCounter}</h2>
             <div className={Style.wrapper}>
-                <Counter maxCounter={props.maxCounter} dateCounter={dateCounter} active={active}/>
+                <Counter
+                    maxCounter={props.maxCounter}
+                    dateCounter={dateCounter}/>
+
                 <div className={Style.btnWrapper}>
-                    <UniversalButton nameButton={'inc'} maxCounter={props.maxCounter} setDateCounter={setDateCounter} dateCounter={dateCounter} active={active} setActive={setActive}/>
-                    <UniversalButton nameButton={'reset'} maxCounter={props.maxCounter} setDateCounter={setDateCounter} dateCounter={dateCounter} active={active} setActive={setActive}/>
+                    <UniversalButton
+                        nameButton={'inc'}
+                        maxCounter={props.maxCounter}
+                        setDateCounter={setDateCounter}
+                        dateCounter={dateCounter}
+                        active={active}
+                        setActive={setActive}/>
+
+                    <UniversalButton
+                        nameButton={'reset'}
+                        maxCounter={props.maxCounter}
+                        setDateCounter={setDateCounter}
+                        dateCounter={dateCounter}
+                        active={active}
+                        setActive={setActive}/>
                 </div>
             </div>
         </>
