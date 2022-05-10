@@ -1,0 +1,16 @@
+.content {
+    grid-area: c;
+    background-color: cornflowerblue;
+}
+
+.contentBanner {
+    width: 100%;
+}
+
+.contentBanner img {
+    width: 100%;
+}
+
+.item {
+
+}
