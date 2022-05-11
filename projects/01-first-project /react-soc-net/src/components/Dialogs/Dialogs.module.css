@@ -1,0 +1,16 @@
+.dialogsItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialogs {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+
+.active {
+    /*color: orange;*/
+    font-weight: bolder;
+}
