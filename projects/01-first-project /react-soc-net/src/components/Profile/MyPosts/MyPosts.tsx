@@ -1,18 +1,15 @@
 import s from './MyPosts.module.css'
 import React from "react";
 import {Post} from "./Post/Post";
-import {PostsDateType} from "../../../index";
+import {PostType} from "../../../redux/state";
 
-type MyPostsPropsType = {
-    postsDate: Array<PostsDateType>
+type MyPostsProps = {
+    statePosts: Array<PostType>
 }
 
-export const MyPosts = (props: MyPostsPropsType) => {
-    //BLL
-    //     in index
-    //BLL
+export const MyPosts = (props: MyPostsProps) => {
 
-    let postsElemets = props.postsDate.map(p => {
+    let postsElemets = props.statePosts.map(p => {
         return  <Post  id={p.id} massage={p.message} likesCount={p.likesCount}/>
     })
 
@@ -22,7 +19,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea/>
                 </div>
                 <div>
                     <button>add post</button>

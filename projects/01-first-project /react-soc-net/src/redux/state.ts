@@ -1,36 +1,43 @@
+import vadim from './../images/avatars/vadim.jpg'
+
 type MassageType = {
     id:number
     message: string
 }
 
-type DialogType = {
+export type DialogType = {
     id: number
     name: string
+    avatar: string
 }
-type  PostType = {
+export type  PostType = {
     id: number
     message: string
     likesCount: number
 }
 
-type ProfilePageType ={
+export type ProfilePageType ={
     posts: Array<PostType>
 }
-type DialogsPageType = {
+
+export type DialogsPageType = {
     dialogs: Array<DialogType>
     messages: Array<MassageType>
 }
 
-type Sidebar = {}
+export type Sidebar = {
+    lastFrends: Array<DialogType>
+}
 
-type RootStateType ={
+export type RootStateType ={
     profilePage: ProfilePageType
-    dialogsPage: DialogType
+    dialogsPage: DialogsPageType
     sidebar: Sidebar
 }
 
 
-export let state ={
+
+export let state: RootStateType ={
     profilePage: {
         posts:[
             {id: 1, message: 'Hi, how are you?', likesCount: 12},
@@ -41,13 +48,13 @@ export let state ={
     },
     dialogsPage: {
         dialogs: [
-            {id:1, name: 'Vadim'},
-            {id:2, name: 'Makar'},
-            {id:3, name: 'Pavel'},
-            {id:4, name: 'Sveta'},
-            {id:5, name: 'Oksan'},
-            {id:6, name: 'Mity'},
-            {id:7, name: 'Andrey'},
+            {id:1, name: 'Vadim', avatar:"https://i10.fotocdn.net/s107/6f4f14f7c38e6e55/public_pin_l/2340078498.jpg" },
+            {id:2, name: 'Makar', avatar:'https://yandex.by/images/search?utm_source=main_stripe_big&text=%D0%91%D0%B5%D0%BB%D0%BE%D0%B5%20%D0%9C%D0%BE%D1%80%D0%B5&nl=1&source=morda&pos=1&rpt=simage&img_url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FC7bdng5V0AAnnM4.jpg' },
+            {id:3, name: 'Pavel', avatar:'./../images/avatars/pasha.jpg'},
+            {id:4, name: 'Sveta', avatar:'./../images/avatars/sveta.jpg'},
+            {id:5, name: 'Oksan', avatar:'./../images/avatars/mam.jpg' },
+            {id:6, name: 'Mity', avatar:'./../images/avatars/mity.jpg' },
+            {id:7, name: 'Andrey', avatar:'./../images/avatars/andrey.jpg'},
         ],
         messages: [
             {id:1, message: 'Hi'},
@@ -57,5 +64,14 @@ export let state ={
             {id:5, message: 'Beer one love!'},
         ]
     },
-    sidebar: {}
+    sidebar: {
+        lastFrends: [{id:0, name: 'test', avatar: ""}],
+    }
 }
+
+const lastFrends = () => {
+    state.sidebar.lastFrends = state.dialogsPage.dialogs.slice(-3)
+}
+lastFrends();
+
+

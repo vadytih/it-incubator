@@ -5,25 +5,23 @@ import {NavBar} from "./components/NavBar/NavBar";
 import {Profile} from "./components/Profile/Profile";
 import {Dialogs} from "./components/Dialogs/Dialogs";
 import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
-import {DialogsType, MessagesType, PostsDateType} from "./index";
+import {RootStateType} from "./redux/state";
 
-type AppPropsType = {
-    postsDate: Array<PostsDateType>
-    dialogs: Array<DialogsType>
-    messages: Array<MessagesType>
+type AppProps ={
+    state: RootStateType
 }
-
-const App = (props: any) => {
+const App = (props: AppProps) => {
     return (
         // <HashRouter>
-       <BrowserRouter>
+        <BrowserRouter>
             <div className={'app-wrapper'}>
                 <Header/>
-                <NavBar/>
+                <NavBar sidebar={props.state.sidebar}/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
-                        <Route path={'/dialogs/*'} element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                        <Route path={'/profile/'} element={<Profile postsDate={props.postsDate}/>}/>
+                        <Route path={'/'} element={<div>999</div>}/>
+                        <Route path={'/dialogs/*'} element={<Dialogs dialogsPage={props.state.dialogsPage}/>}/>
+                        <Route path={'/profile/'} element={<Profile profilePage={props.state.profilePage}/>}/>
                     </Routes>
                 </div>
             </div>
